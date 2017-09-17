@@ -14,3 +14,18 @@
 ### Используемые библиотеки: 
 >- [OpenCV](http://opencv.org/) и [Tesseract](https://github.com/tesseract-ocr/tesseract).
 >- [Scipy](https://www.scipy.org/) и [Numpy](http://www.numpy.org/)
+
+Проект выполнен при помощи Anaconda. Это дистрибутив Python с множеством пакетов и библиотек для научных и инженерных расчетов, которые уже установлены и сконфигурированы.
+
+```python 
+
+import glob
+import os
+
+from IPython.display import display
+from pytesseract import image_to_string
+from __future__ import division
+import numpy as np
+import cv2
+
+```
