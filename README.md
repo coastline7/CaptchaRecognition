@@ -6,7 +6,10 @@
 
 Распознать буквенно-цифровые символы на изображениях с шумом. В проекте используется набор капч с [тайваньского вебсайта](http://bsr.twse.com.tw/bshtm/) в качестве образцов.   
 
-![alt text](https://pp.userapi.com/c636925/v636925593/21a05/UKsoDsVBVKk.jpg)
+![alt text](https://sun9-2.userapi.com/c840734/v840734541/69e0/H3-xuUnAxw8.jpg)
+![alt text](https://sun9-2.userapi.com/c840734/v840734541/69d9/vFmUrkpVLR8.jpg)
+![alt text](https://sun9-2.userapi.com/c840734/v840734541/69d2/vYBRk3f2QnE.jpg)
+![alt text](https://sun9-2.userapi.com/c840734/v840734541/69cb/16PpmtZodx0.jpg)
 
 ### Используемые библиотеки: 
 >- [OpenCV](http://opencv.org/) и [Tesseract](https://github.com/tesseract-ocr/tesseract).
