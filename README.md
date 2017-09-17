@@ -40,6 +40,7 @@ from scipy import misc as ms
 ```python 
 
 def clean_captcha(captcha, filename):
+
     # Вывод исходного изображения
     print('before:')
     display(captcha)
@@ -53,7 +54,7 @@ def clean_captcha(captcha, filename):
     # Преобразование в черно-белое
     (thresh, captcha) = cv2.threshold(captcha, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     
-    # Удаление точечного шума и линии при помощи эрозии, в качестве ядра - массив единиц 3x3
+    # Удаление точечного шума и линии при помощи эрозии, в качестве ядра - массив единиц 3x3 из Numpy
     captcha = cv2.erode(captcha, np.ones((3, 3), dtype=np.uint8))
     
     # Преобразование изображения в черно-белое для дальнейшего устранения шума
@@ -71,4 +72,34 @@ def clean_captcha(captcha, filename):
     
     return captcha
     
+```
+
+### Результаты работы:
+
+```python
+
+# Получение списка файлов в папке с образцами
+l = os.listdir('ocrdata')
+
+# Создание списка с названиями файлов без расширений
+filename_list=[x.split('.')[0] for x in l]
+
+i = 0
+right = 0
+count = len(filename_list)
+for filename in glob.glob('ocrdata/*.png'): # поиск файлов по паттерну *.png
+    im=Image.open(filename)
+    captcha = clean_captcha(im, filename) 
+    
+    # Удаление из распознанной строки лишних символов (любых, кроме 0-9, A-Z)
+    answer = re.sub('[^0-9A-Z]+', '', image_to_string(captcha).upper()).encode("utf-8")
+    
+    real_answer = filename_list[i]
+    print 'answer =', answer
+    print 'real_answer =', real_answer
+    i+=1
+    if answer == real_answer:
+        right+=1
+print 'accuracy =', right/count
+
 ```
