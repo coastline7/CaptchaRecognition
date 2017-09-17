@@ -109,3 +109,4 @@ print 'accuracy =', right/count
 ### Примеры работы:
 
 ![alt text](https://sun9-10.userapi.com/c840722/v840722504/723d/0tz7wAhj4I4.jpg)
+![alt text](https://sun9-10.userapi.com/c840722/v840722504/7245/jxBdoeuQIp0.jpg)
