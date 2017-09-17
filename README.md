@@ -12,10 +12,10 @@
 ![alt text](https://sun9-2.userapi.com/c840734/v840734541/69cb/16PpmtZodx0.jpg)
 
 ### Используемые библиотеки: 
->- [OpenCV](http://opencv.org/) и [Tesseract](https://github.com/tesseract-ocr/tesseract).
+>- [OpenCV](http://opencv.org/) и [Tesseract OCR](https://github.com/tesseract-ocr/tesseract).
 >- [Scipy](https://www.scipy.org/) и [Numpy](http://www.numpy.org/)
 
-Проект выполнен при помощи Anaconda. Это дистрибутив Python с множеством пакетов и библиотек для научных и инженерных расчетов, которые уже установлены и сконфигурированы.
+Проект выполнен при помощи [Anaconda](https://www.continuum.io/downloads). Это дистрибутив Python с множеством пакетов и библиотек для научных и инженерных расчетов, которые уже установлены и сконфигурированы.
 
 ```python 
 
@@ -29,3 +29,7 @@ import numpy as np
 import cv2
 
 ```
+
+### Очистка изображения:
+
+Необходимо очистить изображение от шума, чтобы библиотека Tesseract смогла получить хороший результат распознавания. Для лучшего контраста образцы конвертируются в черно-белые сразу же после чтения. Затем используются эрозия [erode](http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html) и функция шумоподавления [fastNlMeansDenoising](http://docs.opencv.org/2.4/modules/photo/doc/denoising.html) из библиотеки OpenCV для того, чтобы удалить весь точечный шум и полосу на изображении. После этого шага получается достаточно чистый образец для Tesseract. Для лучшей точности OCR необходимо настроить форму и размер ядра эрозии и величину h в fastNlMeansDenoising.
